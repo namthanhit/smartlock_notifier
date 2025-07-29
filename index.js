@@ -7,10 +7,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // --- Cấu hình Firebase Admin SDK ---
-const serviceAccount = process.env.SERVICE_ACCOUNT_KEY
-  ? JSON.parse(process.env.SERVICE_ACCOUNT_KEY)
-  : require('./config/smartkey-3faeb-firebase-adminsdk-fbsvc-94f8378caf.json');
-// Chỉ dùng khi phát triển cục bộ và file key nằm trong dự án
+const serviceAccount = JSON.parse(process.env.SERVICE_ACCOUNT_KEY);
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
